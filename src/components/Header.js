@@ -1,12 +1,11 @@
 import React from 'react';
-import { Box } from '@chakra-ui/react';
-
 
 const Header = () => {
   return (
-    <Box  as="button" borderRadius='md' m={6} bg="#171923" px={4} color="#fff" h={8}>
-      This is the header
-    </Box>
+    <header className="bg-gray-600 w-full h-32 flex my-auto">
+      <h2 className="text-2xl text-white font-black text-center">Welcome</h2>
+    </header>
+    
   )
 }
 
