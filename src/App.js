@@ -1,22 +1,33 @@
 import React from 'react';
 import Header from './components/Header';
-import { fetchData } from './components/FetchData';
-import { useQuery } from 'react-query';
 import Hero from './components/Hero';
+import Home from './pages/Home';
+import Shop from './pages/Shop';
+import Contact from './pages/Contact';
+import About from './pages/About';
+import Cart from './pages/Cart';
+
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 
 function App() {
 
-  const {data} = useQuery('products', () => fetchData('https://fakestoreapi.com/products'), {
-      retry: false
-  })
 
   return (
+    <Router>
     <div className="App">
       <Header />
       <Hero />
-      {data && console.log(data)}
+      <Switch>
+        <Route component={Home} exact path="/" />
+        <Route component={Shop} path="/shop" />
+        <Route component={Contact} path="/contact" />
+        <Route component={About} path="/about" />
+        <Route component={Cart} path="/cart" />
+      </Switch>
+      
     </div>
+    </Router>
   );
 }
 
