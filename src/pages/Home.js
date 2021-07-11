@@ -1,24 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useQuery } from 'react-query';
 import Card from '../components/Card';
-
-
-const fetchData = async() => {
-  const res = await fetch('https://fakestoreapi.com/products');
-  const data = await res.json();
-  return data;
-}
+import { DataContext } from '../context/dataContext/DataContext';
 
 const Home = () => {
+  const { fetchData } = useContext(DataContext);
 
-  const {data, isLoading} = useQuery('prod', fetchData);
+  const {data, isLoading, isError} = useQuery('prod', fetchData);
 
   return (
     <div className="lg:grid lg:grid-cols-3 lg:gap-4">
-      {/* {data && console.log(data)} */}
-      {isLoading && <h3>Data is loading</h3>}
       {data && data.map((item)=>(
-        <Card data={item} />
+        <Card data={item} key={item.id}/>
       ))}
     </div>
   )
