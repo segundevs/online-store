@@ -15,7 +15,7 @@ function App() {
 
   return (
     <Router>
-    <div className="App">
+    <div className="text-gray-700 dark:text-gray-200 bg-gray-200 dark:bg-gray-700">
       <Header />
       <Hero />
       <Switch>

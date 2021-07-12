@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import {TiShoppingCart} from 'react-icons/ti';
+import {BsMoon} from 'react-icons/bs';
+import {HiLightBulb} from 'react-icons/hi';
+import { CartContext } from '../contexts/cartContext/CartContext';
+import useDarkMode from '../hooks/useDarkMode';
 
 const NavLinks = ({isOpen, setIsOpen}) => {
+  const [ colorTheme, setTheme] = useDarkMode();
+  const { cartItem} = useContext(CartContext);
+
   return (
     <div className={`items-center md:flex ${isOpen ? "block" : "hidden" }`}>
                     {/*Mobile Menu open: "block", Menu closed: "hidden"*/} 
@@ -15,9 +22,16 @@ const NavLinks = ({isOpen, setIsOpen}) => {
                           {/* Shopping cart icon */}
       <div className="flex justify-center md:block">
           <Link to="/cart" className="relative text-gray-700 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-300">
-            <TiShoppingCart className="w-5 h-5"/>
-            <span className="absolute top-0 left-0 p-1 text-xs text-white bg-indigo-500 rounded-full"></span>
+            <TiShoppingCart className="w-9 h-9"/>
+            <span className="absolute top-1 left-0 p-1 text-xs text-white text-center bg-indigo-500 rounded-full w-5 h-5">{cartItem.length}</span>
           </Link>
+      </div>
+
+              {/* Toggle icon */}
+      <div className="flex justify-center md:block">
+          <span onClick = {()=>{setTheme(colorTheme)}}className="text-gray-700 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-300">
+            {colorTheme === 'dark' ? <BsMoon className="w-5 h-5 mt-3 md:ml-8 md:mt-0"/> : <HiLightBulb className="w-5 h-5 mt-3 md:ml-8 md:mt-0"/>}
+          </span>
       </div>
     </div>
   )

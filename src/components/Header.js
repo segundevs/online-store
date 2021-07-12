@@ -5,10 +5,9 @@ import {MdClose} from 'react-icons/md';
 import NavLinks from './NavLinks';
 
 
+
 const Header = () => {
-
   const [isOpen, setIsOpen] = useState(true);
-
   return (
     <header className="bg-white shadow dark:bg-gray-800">
         <div className="container px-6 py-4 mx-auto md:flex md:justify-between md:items-center">
