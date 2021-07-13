@@ -3,13 +3,14 @@ import { CartContext } from '../contexts/cartContext/CartContext';
 
 const Card = ({item}) => {
 
-  const { addToCart, isInCart, removeFromCart } = useContext(CartContext);
+  const { addToCart, isInCart, removeFromCart, cartPriceList } = useContext(CartContext);
 
   const handleClick = (item) => {
     if(isInCart(item.id)){
       removeFromCart(item.id)
     }else{
       addToCart(item)
+      cartPriceList(item)
     }
   }
 

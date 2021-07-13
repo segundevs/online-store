@@ -1,22 +1,33 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext } from 'react';
+import useLocalStorage from '../../hooks/useLocalStorage';
 
 export const CartContext = createContext();
 
 const CartContextProvider = ({children}) => {
 
-  const [cartItem, setCartItem] = useState([]);
-  const [cartPrice, setCartPrice] = useState([])
+  const [cartItem, setCartItem] = useLocalStorage('inCart', []);
+ // const [cartPrice, setCartPrice] = useLocalStorage('totalPrice', [])
 
   const addToCart = (item) => {
     const newCartItems = [...cartItem, item];
     setCartItem(newCartItems);
   };
 
-  const cartPriceList = (item) => {
-    const newCartPrice = [...cartPrice, {item: item.price}];
-    setCartPrice(newCartPrice);
-    console.log(newCartPrice)
-  }
+
+  // const cartPriceList = (item) => {
+  //   const newCartPrice = [...cartPrice, {item: item.price}];
+
+  //   newCartPrice.reduce((acc, curr) => {
+  //     if(curr){
+  //       acc += newCartPrice
+  //     } 
+  //     return acc;  
+  //   }, 0)
+
+  //   setCartPrice(newCartPrice);
+  //   console.log(setCartPrice(newCartPrice))
+  // }
+  
   const removeFromCart = (id) => {
     setCartItem(prevCartItem => prevCartItem.filter(item=> item.id !== id));
   };
@@ -26,7 +37,7 @@ const CartContextProvider = ({children}) => {
   };
 
   return (
-    <CartContext.Provider value = {{ cartItem, addToCart, removeFromCart, isInCart, cartPriceList}}>
+    <CartContext.Provider value = {{ cartItem, addToCart, removeFromCart, isInCart }}>
       {children}
     </CartContext.Provider>
   )
