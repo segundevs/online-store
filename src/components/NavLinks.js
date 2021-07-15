@@ -11,9 +11,9 @@ const NavLinks = ({isOpen, setIsOpen}) => {
   const { cartItem} = useContext(CartContext);
 
   return (
-    <div className={`items-center md:flex ${isOpen ? "block" : "hidden" }`}>
+    <div onClick={() => setIsOpen(prev => !prev)} className={`items-center md:flex ${isOpen ? "block" : "hidden" }`}>
                     {/*Mobile Menu open: "block", Menu closed: "hidden"*/} 
-      <div onClick={() => setIsOpen(prev => !prev)} className="flex flex-col md:flex-row md:mx-6">
+      <div  className="flex flex-col md:flex-row md:mx-6">
           <Link to="/" className="my-1 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-indigo-500 dark:hover:text-indigo-400 md:mx-4 md:my-0">Home</Link>
           <Link to="/shop" className="my-1 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-indigo-500 dark:hover:text-indigo-400 md:mx-4 md:my-0">Shop</Link>
           <Link to="/contact" className="my-1 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-indigo-500 dark:hover:text-indigo-400 md:mx-4 md:my-0">Contact</Link>

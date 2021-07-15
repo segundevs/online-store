@@ -3,14 +3,16 @@ import { CartContext } from '../contexts/cartContext/CartContext';
 
 const Card = ({item}) => {
 
-  const { addToCart, isInCart, removeFromCart, cartPriceList } = useContext(CartContext);
+  const { addToCart, isInCart, removeFromCart } = useContext(CartContext);
+
+  
+
 
   const handleClick = (item) => {
     if(isInCart(item.id)){
       removeFromCart(item.id)
     }else{
       addToCart(item)
-      cartPriceList(item)
     }
   }
 
@@ -27,6 +29,7 @@ const Card = ({item}) => {
             <h1 className="text-lg font-bold text-white">${item.price}</h1>
             <button onClick={() => handleClick(item)} className="px-2 py-1 text-xs font-semibold text-gray-900 uppercase transition-colors duration-200 transform bg-white rounded hover:bg-gray-200 focus:bg-gray-400 focus:outline-none">{isInCart(item.id) ? 'Remove from Cart' : 'Add to cart'}</button>
         </div>
+       
     </div>
   )
 }

@@ -13,10 +13,10 @@ ReactDOM.render(
   <DataContextProvider>
     <CartContextProvider>
       <React.StrictMode>
-        <QueryClientProvider client={queryClient}>
-          <App />
-          {<ReactQueryDevtools />}
-        </QueryClientProvider>
+          <QueryClientProvider client={queryClient}>
+            <App />
+            {<ReactQueryDevtools />}
+          </QueryClientProvider>
       </React.StrictMode>
     </CartContextProvider>
   </DataContextProvider>,
