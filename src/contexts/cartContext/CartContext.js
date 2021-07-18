@@ -1,4 +1,4 @@
-import React, { useState, createContext } from 'react';
+import React, { createContext } from 'react';
 import useLocalStorage from '../../hooks/useLocalStorage';
 
 export const CartContext = createContext();
@@ -6,13 +6,13 @@ export const CartContext = createContext();
 const CartContextProvider = ({children}) => {
 
   const [cartItem, setCartItem] = useLocalStorage('inCart', []);
-  const [quantity, setQuantity] = useState(1);
 
   //Add item to cart
   const addToCart = (item) => {
-    const newCartItems = [...cartItem, item];
+    const newItems = {...item, quantity: 1}
+    const newCartItems = [...cartItem, newItems];
     setCartItem(newCartItems);
-  };
+  }
 
   //Remove item from cart
   const removeFromCart = (id) => {
@@ -24,17 +24,17 @@ const CartContextProvider = ({children}) => {
     return cartItem.some(item => item.id === id)
   };
 
-  //Manage the quantity of items is cart
-  const increment = () => {
-      setQuantity(quantity + 1);
+  const increment = (id) => {
+    cartItem.map((item)=>(
+      if(item.id === id){
+        return {...item, quantity: item.quantity + 1}
+      };  
+    ))
   }
 
-  const decrement = () => {
-      setQuantity(quantity - 1);
-  }
 
   return (
-    <CartContext.Provider value = {{ cartItem, quantity, addToCart, removeFromCart, isInCart, increment, decrement }}>
+    <CartContext.Provider value = {{ cartItem, addToCart, removeFromCart, isInCart, increment }}>
       {children}
     </CartContext.Provider>
   )
