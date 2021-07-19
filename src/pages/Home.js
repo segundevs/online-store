@@ -1,10 +1,8 @@
-import React, { useContext } from 'react';
 import { useQuery } from 'react-query';
 import Card from '../components/Card';
-import { DataContext } from '../contexts/dataContext/DataContext';
+import { getFeaturedProducts } from '../utils/api';
 
 const Home = () => {
-  const { getFeaturedProducts } = useContext(DataContext);
 
   const {data, isLoading, isError} = useQuery('featured-products', getFeaturedProducts);
 

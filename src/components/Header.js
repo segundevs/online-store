@@ -7,7 +7,7 @@ import NavLinks from './NavLinks';
 
 
 const Header = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <header className="bg-white shadow dark:bg-gray-800">
         <div className="container px-6 py-4 mx-auto md:flex md:justify-between md:items-center">
@@ -18,7 +18,7 @@ const Header = () => {
                 
                 {/*Mobile menu button*/}
                 <div className="flex md:hidden" onClick={() => setIsOpen(prev => !prev)}>
-                   <button   type="button" className="text-gray-500 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400" aria-label="toggle menu">
+                   <button type="button" className="text-3xl text-gray-500 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400" aria-label="toggle menu">
                         {!isOpen ? <BiMenuAltLeft /> : <MdClose />}
                     </button>
                 </div>

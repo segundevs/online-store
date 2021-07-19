@@ -1,10 +1,8 @@
-import React, { useContext } from 'react';
 import { useQuery } from 'react-query';
 import Card from '../components/Card';
-import { DataContext } from '../contexts/dataContext/DataContext';
+import { getAllProducts } from '../utils/api';
 
 const Shop = () => {
-  const { getAllProducts } = useContext(DataContext);
 
   const {data, isLoading, isError} = useQuery('all-products', getAllProducts);
 

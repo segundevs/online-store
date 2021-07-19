@@ -25,16 +25,22 @@ const CartContextProvider = ({children}) => {
   };
 
   const increment = (id) => {
-    cartItem.map((item)=>(
-      if(item.id === id){
-        return {...item, quantity: item.quantity + 1}
-      };  
+    const updatedItems = cartItem.map((item)=>(
+      item.id === id ? {...item, quantity: item.quantity + 1} : item
     ))
+    setCartItem(updatedItems)
+  }
+
+  const decrement = (id) => {
+    const updatedItems = cartItem.map((item)=>(
+      item.id === id ? {...item, quantity: item.quantity - 1} : item
+    ))
+    setCartItem(updatedItems)
   }
 
 
   return (
-    <CartContext.Provider value = {{ cartItem, addToCart, removeFromCart, isInCart, increment }}>
+    <CartContext.Provider value = {{ cartItem, addToCart, removeFromCart, isInCart, increment, decrement }}>
       {children}
     </CartContext.Provider>
   )
