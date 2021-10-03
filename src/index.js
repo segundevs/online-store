@@ -2,19 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import {QueryClientProvider, QueryClient} from 'react-query';
-import { ReactQueryDevtools } from 'react-query/devtools'
 import CartContextProvider from './contexts/cartContext/CartContext';
-
-const queryClient = new QueryClient();
+import { Provider } from 'react-redux';
+import store from './redux/store';
 
 ReactDOM.render(
     <CartContextProvider>
       <React.StrictMode>
-          <QueryClientProvider client={queryClient}>
+        <Provider store={store}>
             <App />
-            {<ReactQueryDevtools />}
-          </QueryClientProvider>
+        </Provider>
       </React.StrictMode>
     </CartContextProvider>,
   document.getElementById('root')
