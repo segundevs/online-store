@@ -6,8 +6,9 @@ import NavLinks from './NavLinks';
 
 
 
-const Header = () => {
+const Header = ({value, setValue}) => {
   const [isOpen, setIsOpen] = useState(false);
+
   return (
     <header className="bg-white shadow dark:bg-gray-800">
         <div className="container px-6 py-4 mx-auto md:flex md:justify-between md:items-center">
@@ -23,6 +24,14 @@ const Header = () => {
                     </button>
                 </div>
             </div>
+
+            <select className="w-56 bg-gray-200 outline-none" value={value} onChange={(e) => setValue(e.target.value)}>
+                <option value="all">All Categories</option>
+                <option value="electronics">Electronics</option>
+                <option value="jewelery">Jewelery</option>
+                <option value="men's clothing">Men's Clothing</option>
+                <option value="women's clothing">Women's Clothing</option>
+            </select>
             {/*Mobile Menu open: "block", Menu closed: "hidden"*/} 
             <NavLinks isOpen={isOpen} setIsOpen={setIsOpen}/>
         </div>
