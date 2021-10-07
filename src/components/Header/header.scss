@@ -1,0 +1,149 @@
+@import "../../sass/variables";
+@import "../../sass/breakpoints";
+
+.header {
+  background-color: $primary;
+  color: $white;
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 999;
+
+  .navbar {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 10px 0;
+  }
+}
+
+.nav__links {
+  display: none;
+
+  @include md {
+    display: flex;
+  }
+
+  .nav__link {
+    @include md {
+      margin-left: 20px;
+    }
+  }
+}
+
+.navbar__links-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.menu-icon {
+  cursor: pointer;
+
+  @include md {
+    display: none;
+  }
+}
+
+.cart-icon {
+  color: $white;
+  margin-left: 20px;
+
+  &:hover {
+    color: $primary-dark;
+  }
+}
+
+.nav__links-mobile {
+  display: flex;
+  width: 50vw;
+  flex-direction: column;
+  align-items: center;
+  background-color: $primary;
+  position: fixed;
+  top: 40px;
+  right: 0;
+  bottom: 0;
+
+  @include md {
+    display: none;
+  }
+
+  .nav__link {
+    margin-top: 50px;
+  }
+}
+
+.toggleIcon {
+  margin-left: 20px;
+}
+
+.header__filter {
+  display: flex;
+  align-items: center;
+  height: 30px;
+  padding: 0 10px;
+}
+
+.header__filter-input-container {
+  display: flex;
+  align-items: center;
+  background-color: $white;
+  height: 100%;
+  border-radius: 15px;
+
+  @include md {
+    border-radius: 0;
+  }
+
+  .searchIcon {
+    color: $gray-ash;
+    margin-right: 10px;
+  }
+}
+
+.header__filter-select {
+  display: none;
+
+  @include md {
+    display: block;
+    background-color: $secondary;
+    height: 100%;
+    padding: 0 10px;
+    outline: none;
+    border: none;
+  }
+}
+
+.header__filter-input {
+  outline: none;
+  border: none;
+  padding-left: 10px;
+  color: $gray-ash;
+  border-radius: 15px;
+
+  @include md {
+    border-radius: 0;
+  }
+}
+
+.sign-in {
+  background-color: $primary-dark;
+  color: $white;
+  text-align: center;
+  width: 100%;
+  padding: 8px 0;
+  border-radius: 10px;
+
+  &:hover {
+    background-color: $white;
+    color: $primary-dark;
+  }
+
+  @include md {
+    padding: 2px 20px;
+    border-radius: 5px;
+  }
+}
