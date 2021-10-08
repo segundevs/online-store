@@ -1,0 +1,73 @@
+@import "../../sass/variables";
+@import "../../sass//breakpoints";
+
+.hero__container {
+  position: relative;
+  background-image: url("../../img/hero.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 400px;
+
+  @include md {
+    height: 450px;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: $white;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    .hero__content {
+      margin-left: 20px;
+
+      @include md {
+        margin-left: 5%;
+      }
+
+      .hero__header {
+        font-weight: 900;
+        font-size: 2.2rem;
+        line-height: 40px;
+        width: 100%;
+        margin-top: 40px;
+        margin-bottom: 10px;
+
+        @include md {
+          font-size: 3.5rem;
+          width: 100%;
+          line-height: 58px;
+          margin-bottom: 20px;
+        }
+      }
+
+      .hero__text {
+        width: 100%;
+        margin-bottom: 40px;
+
+        @include md {
+          margin-bottom: 30px;
+        }
+      }
+
+      .hero__link {
+        background-color: $primary-dark;
+        padding: 8px 15px;
+        border-radius: 8px;
+        margin: 20px 0;
+
+        &:hover {
+          background-color: $primary;
+        }
+      }
+    }
+  }
+}

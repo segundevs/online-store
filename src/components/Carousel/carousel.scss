@@ -1,0 +1,59 @@
+@import "../../sass//variables";
+
+.slider {
+  max-width: 80%;
+  margin: 20px auto;
+
+  .electronics,
+  .jewelery,
+  .men-clothing,
+  .women-clothing {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 200px;
+    width: 80%;
+    margin: 0 auto;
+
+    .carousal__header-inner {
+      color: $primary-dark;
+      font-size: 1.6rem;
+      width: 50%;
+      font-weight: 800;
+      margin-left: 10px;
+    }
+
+    .carousel__text {
+      color: $gray-ash;
+      margin-left: 10px;
+      font-weight: 500;
+      width: 70%;
+    }
+  }
+
+  .electronics {
+    background-image: url("../../img/electronic.jpg");
+    background-position: bottom;
+  }
+
+  .jewelery {
+    background-image: url("../../img/jewelry.jpg");
+  }
+
+  .men-clothing {
+    background-image: url("../../img/men.jpg");
+  }
+
+  .women-clothing {
+    background-image: url("../../img/women.jpg");
+  }
+}
+
+.carousel__header {
+  text-align: center;
+  margin: 30px auto;
+  color: $primary-dark;
+  font-size: 2.2rem;
+  line-height: 26px;
+  font-weight: 800;
+}
