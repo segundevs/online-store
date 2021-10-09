@@ -1,0 +1,67 @@
+@import "../../sass/variables";
+@import "../../sass/breakpoints";
+
+.shop__container {
+  width: 90%;
+  margin: 100px auto;
+}
+
+.shop__header {
+  color: $primary-dark;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+
+.shop__container-items {
+  width: 80%;
+  margin: 40px auto;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 20px;
+
+  @include md {
+    width: 100%;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.header__filter {
+  display: flex;
+  align-items: center;
+  height: 30px;
+  padding: 0 10px;
+}
+
+// .header__filter-input-container {
+//   display: flex;
+//   align-items: center;
+//   background-color: $white;
+//   height: 100%;
+//   border-radius: 15px;
+
+//   @include md {
+//     border-radius: 0;
+//   }
+
+//   .searchIcon {
+//     color: $gray-ash;
+//     margin-right: 10px;
+//   }
+// }
+
+.header__filter-select {
+  display: block;
+  width: 50vw;
+  background-color: $white;
+  color: $primary-dark;
+  height: 100%;
+  padding: 0 10px;
+  outline: none;
+  border: 1px solid $primary-dark;
+  border-radius: 5px;
+
+  @include md {
+    width: 30vw;
+  }
+}
